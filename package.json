@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/MouzinGulzar/Paaband/issues"
   },
-  "homepage": "https://github.com/MouzinGulzar/Paaband#readme"
+  "homepage": "https://github.com/MouzinGulzar/Paaband#readme",
+  "devDependencies": {
+    "parcel": "^2.8.2"
+  }
 }

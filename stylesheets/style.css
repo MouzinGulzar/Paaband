@@ -1,9 +1,299 @@
+@import "https://fonts.googleapis.com/css?family=Josefin+Sans:400,700";
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Roboto&display=swap");
+* {
+  animation: fadeIn 0.5s;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Josefin Sans", sans-serif;
+  background-color: #eee;
+}
+body a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 nav {
   border-color: #306224;
 }
 
 svg {
   fill: #306224;
+}
+
+.date {
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+  text-align: center;
+  padding: 0.5em;
+  background-color: white;
+}
+@media only screen and (max-width: 480px) {
+  .date {
+    font-size: 1em;
+  }
+}
+
+#search-div {
+  margin-top: 1rem;
+  position: sticky;
+  top: 1.6em;
+  z-index: 1;
+}
+#search-div button {
+  background-color: #306224;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  z-index: 0;
+}
+#search-div input {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-right: none;
+  border-color: #306224;
+}
+#search-div input::placeholder {
+  color: #306224;
+}
+#search-div input::placeholder:focus {
+  color: grey;
+}
+#search-div input:focus {
+  box-shadow: 0px 0px 3px 1px #306224;
+  outline: none;
+}
+
+.sticked {
+  background-color: white;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+#place_heading {
+  margin: 2rem 1rem 1rem 1rem;
+  text-align: center;
+  text-transform: capitalize;
+  color: #306224;
+  font-size: 2em;
+  font-weight: bold;
+}
+@media only screen and (max-width: 480px) {
+  #place_heading {
+    font-size: 1.3em;
+  }
+}
+
+.time {
+  display: flex;
+  flex: auto;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+.time button {
+  background-color: #306224;
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.time button svg {
+  fill: white;
+  height: 28px;
+  width: 28px;
+}
+.time button:hover {
+  background-color: #306224;
+}
+@media only screen and (max-width: 480px) {
+  .time button {
+    padding: 0.45em 0.9em;
+    font-size: 1em;
+  }
+  .time button svg {
+    height: 20px;
+    width: 20px;
+  }
+}
+.time div {
+  width: 60%;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
+}
+@media only screen and (max-width: 480px) {
+  .time div {
+    width: 57%;
+  }
+}
+.time div input {
+  font-size: 1.5em;
+  width: 100%;
+  height: 1.8em;
+  text-align: center;
+  text-transform: uppercase;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #306224;
+  outline: none;
+}
+@media only screen and (max-width: 480px) {
+  .time div input {
+    font-size: 1em;
+    height: 2.15em;
+  }
+}
+
+#btn_prev {
+  border-radius: 50px 0px 0px 50px;
+}
+#btn_prev svg {
+  transform: translateX(10%);
+}
+#btn_prev svg:hover {
+  transform: translateX(-10%);
+}
+
+#btn_next {
+  border-radius: 0px 50px 50px 5px;
+}
+#btn_next svg {
+  transform: translateX(-10%);
+}
+#btn_next svg:hover {
+  transform: translateX(10%);
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+  color: #306224;
+  opacity: 1;
+  display: block;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  transform: translateX(-25%);
+  border-width: thin;
+}
+@media only screen and (max-width: 480px) {
+  input[type=date]::-webkit-calendar-picker-indicator {
+    width: 1.2em;
+    height: 1.2em;
+  }
+}
+
+.cards-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-around;
+}
+
+.card {
+  height: 10em;
+  width: 15em;
+  min-width: 12rem;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  transition: 0.5s;
+  margin: 0.5rem;
+  margin-top: 2rem;
+}
+.card:hover .card-front {
+  transform: rotateX(-180deg);
+}
+.card:hover .card-back {
+  transform: rotateX(0deg);
+}
+@media only screen and (max-width: 480px) {
+  .card {
+    height: 9em;
+    width: 11em;
+  }
+}
+
+.card-front {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 10%;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  color: #306224;
+  transform: rotateX(0deg);
+  transition: 0.5s;
+  text-align: center;
+}
+.card-front h2 {
+  text-transform: capitalize;
+  line-height: normal;
+  margin: 0.5em;
+  margin-bottom: 1em;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+@media only screen and (max-width: 480px) {
+  .card-front h2 {
+    font-size: 1.1em;
+  }
+}
+.card-front h2 span {
+  font-size: 1em;
+}
+.card-front p {
+  margin-top: auto;
+  font-size: 3em;
+  line-height: normal;
+}
+@media only screen and (max-width: 480px) {
+  .card-front p {
+    font-size: 2.5em;
+  }
+}
+
+.card-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10%;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #306224;
+  backface-visibility: hidden;
+  transform: rotateX(180deg);
+  transition: 0.5s;
+  color: #ffffff;
+  text-align: center;
+}
+.card-back h2 {
+  margin: 0.5rem;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.card-back p {
+  margin-top: auto;
+  font-size: 3em;
+  line-height: normal;
+}
+@media only screen and (max-width: 480px) {
+  .card-back p {
+    font-size: 2.5em;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

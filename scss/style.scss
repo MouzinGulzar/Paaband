@@ -1,4 +1,49 @@
-$color: #306224;
+// Variables
+$color: #306224; // Theme
+$phone: 480px; // Phone breakpoint
+$tablet: 680px; // Tablet breakpoint
+$desktop: 1024px; // Desktop breakpoint
+$card_height: 10em; // Card height
+$card_width: 15em; // Card widht
+
+// Imports
+@import "https://fonts.googleapis.com/css?family=Josefin+Sans:400,700";
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Roboto&display=swap");
+
+// mixin to write media queries efficiently
+@mixin devices($breakpoint) {
+    @if $breakpoint == desktop {
+        @media only screen and (max-width: $desktop) {
+            @content;
+        }
+    }
+    @if $breakpoint == tablet {
+        @media only screen and (max-width: $tablet) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == phone {
+        @media only screen and (max-width: $phone) {
+            @content;
+        }
+    }
+}
+
+* {
+    animation: fadeIn 0.5s;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Josefin Sans", sans-serif;
+    background-color: #eee;
+    a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+}
 
 nav {
     border-color: $color;
@@ -6,4 +51,301 @@ nav {
 
 svg {
     fill: $color;
+}
+
+//! Urdu font
+// .ur {
+//     font-family: "merriweatherblack", "NotoDevanagariBold", "NotoNastaliqUrdu";;
+//     font-style: normal;
+//     font-weight: 400;
+//     src: url("fonts/NotoNastaliqUrdu-Regular.ttf");
+// }
+
+// Top date div
+.date {
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+    text-align: center;
+    padding: 0.5em;
+    background-color: white;
+    @include devices(phone) {
+        font-size: 1em;
+    }
+}
+
+// Search bar
+#search-div {
+    margin-top: 1rem;
+    position: sticky;
+    top: 1.6em;
+    z-index: 1;
+    button {
+        background-color: $color;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        z-index: 0;
+    }
+    input {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-right: none;
+        border-color: $color;
+
+        &::placeholder {
+            color: $color;
+            &:focus {
+                color: grey;
+            }
+        }
+        &:focus {
+            box-shadow: 0px 0px 3px 1px $color;
+            outline: none;
+        }
+    }
+}
+// Class to make search bar stick to top
+.sticked {
+    background-color: white;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+// Heading
+#place_heading {
+    margin: 2rem 1rem 1rem 1rem;
+    text-align: center;
+    text-transform: capitalize;
+    color: $color;
+    font-size: 2em;
+    font-weight: bold;
+    @include devices(phone) {
+        font-size: 1.3em;
+    }
+}
+
+// Time slider
+.time {
+    display: flex;
+    flex: auto;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+
+    // Next and prev buttons
+    button {
+        background-color: $color;
+        padding-right: 1.5em;
+        padding-left: 1.5em;
+        box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
+
+        // Svgs inside buttons
+        svg {
+            fill: white;
+            height: 28px;
+            width: 28px;
+        }
+
+        // Override default hover of tailwind buttons
+        &:hover {
+            background-color: #306224;
+        }
+
+        // Media queries for phone
+        @include devices(phone) {
+            padding: 0.45em 0.9em;
+            font-size: 1em;
+
+            svg {
+                height: 20px;
+                width: 20px;
+            }
+        }
+    }
+
+    // Div between buttons
+    div {
+        width: 60%;
+        box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
+
+        @include devices(phone) {
+            width: 57%;
+        }
+
+        // Date picker
+        input {
+            font-size: 1.5em;
+            width: 100%;
+            height: 1.8em;
+            text-align: center;
+            text-transform: uppercase;
+            border-top: 1px solid;
+            border-bottom: 1px solid;
+            border-color: $color;
+            outline: none;
+
+            @include devices(phone) {
+                font-size: 1em;
+                height: 2.15em;
+            }
+        }
+    }
+}
+
+// Prev and Next button
+#btn_prev {
+    border-radius: 50px 0px 0px 50px;
+    svg {
+        transform: translateX(10%);
+        &:hover {
+            transform: translateX(-10%);
+        }
+    }
+}
+#btn_next {
+    border-radius: 0px 50px 50px 5px;
+    svg {
+        transform: translateX(-10%);
+        &:hover {
+            transform: translateX(10%);
+        }
+    }
+}
+
+// Overriding default style of date picker
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: $color;
+    opacity: 1;
+    display: block;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    transform: translateX(-25%);
+    border-width: thin;
+
+    @include devices(phone) {
+        width: 1.2em;
+        height: 1.2em;
+    }
+}
+
+// Cards
+.cards-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+
+.card {
+    height: $card_height;
+    width: $card_width;
+    min-width: 12rem;
+    transform-style: preserve-3d;
+    perspective: 600px;
+    transition: 0.5s;
+    margin: 0.5rem;
+    margin-top: 2rem;
+    &:hover .card-front {
+        transform: rotateX(-180deg);
+    }
+    &:hover .card-back {
+        transform: rotateX(0deg);
+    }
+    @include devices(phone) {
+        height: $card_height - 1em;
+        width: $card_width - 4em;
+    }
+}
+
+// Card front side
+.card-front {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 10%;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    color: $color;
+    transform: rotateX(0deg);
+    transition: 0.5s;
+    text-align: center;
+
+    // Card heading
+    h2 {
+        text-transform: capitalize;
+        line-height: normal;
+        margin: 0.5em;
+        margin-bottom: 1em;
+        font-size: 1.2em;
+        font-weight: bold;
+        @include devices(phone) {
+            font-size: 1.1em;
+        }
+        span {
+            font-size: 1em;
+        }
+    }
+
+    // Card time
+    p {
+        margin-top: auto;
+        font-size: 3em;
+        line-height: normal;
+        @include devices(phone) {
+            font-size: 2.5em;
+        }
+    }
+}
+
+// Card back side
+.card-back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $color;
+    backface-visibility: hidden;
+    transform: rotateX(180deg);
+    transition: 0.5s;
+    color: #ffffff;
+    text-align: center;
+
+    // Card heading
+    h2 {
+        margin: 0.5rem;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    // Card time
+    p {
+        margin-top: auto;
+        font-size: 3em;
+        line-height: normal;
+        @include devices(phone) {
+            font-size: 2.5em;
+        }
+    }
+}
+
+
+// Keyframes
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
