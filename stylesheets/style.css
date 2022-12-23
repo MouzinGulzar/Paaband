@@ -4,11 +4,13 @@
   animation: fadeIn 0.5s;
 }
 
+title {
+  text-transform: capitalize;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: "Josefin Sans", sans-serif;
-  background-color: #eee;
 }
 body a {
   color: #ffffff;
@@ -33,7 +35,7 @@ svg {
 }
 @media only screen and (max-width: 480px) {
   .date {
-    font-size: 1em;
+    font-size: 0.8em;
   }
 }
 
@@ -76,6 +78,9 @@ svg {
   text-align: center;
   text-transform: capitalize;
   color: #306224;
+  background-color: #eee;
+  border-radius: 15px;
+  padding: 0.5em 0em;
   font-size: 2em;
   font-weight: bold;
 }
@@ -123,6 +128,7 @@ svg {
 @media only screen and (max-width: 480px) {
   .time div {
     width: 57%;
+    min-width: 7em;
   }
 }
 .time div input {
@@ -180,17 +186,24 @@ input[type=date]::-webkit-calendar-picker-indicator {
   }
 }
 
+.cont {
+  margin-bottom: 5rem;
+  background-color: #eee;
+  border-radius: 15px;
+  margin: 2em 1em;
+  padding: 1em;
+}
+
 .cards-section {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  align-content: space-around;
 }
 
 .card {
   height: 10em;
   width: 15em;
-  min-width: 12rem;
+  min-width: 10rem;
   transform-style: preserve-3d;
   perspective: 600px;
   transition: 0.5s;
@@ -205,8 +218,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 @media only screen and (max-width: 480px) {
   .card {
-    height: 9em;
-    width: 11em;
+    height: 8em;
+    margin: 0.5rem;
+    margin-top: 1em;
   }
 }
 
@@ -214,7 +228,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border-radius: 10%;
+  border-radius: 25px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
@@ -237,7 +251,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 @media only screen and (max-width: 480px) {
   .card-front h2 {
-    font-size: 1.1em;
+    font-size: 1em;
   }
 }
 .card-front h2 span {
@@ -247,18 +261,19 @@ input[type=date]::-webkit-calendar-picker-indicator {
   margin-top: auto;
   font-size: 3em;
   line-height: normal;
+  font-weight: bold;
 }
 @media only screen and (max-width: 480px) {
   .card-front p {
-    font-size: 2.5em;
+    font-size: 1.6em;
   }
 }
 
 .card-back {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  border-radius: 10%;
+  justify-content: flex-start;
+  border-radius: 25px;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -273,6 +288,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 .card-back h2 {
   margin: 0.5rem;
+  margin-top: 10%;
   font-size: 1.2em;
   font-weight: bold;
 }
@@ -280,10 +296,199 @@ input[type=date]::-webkit-calendar-picker-indicator {
   margin-top: auto;
   font-size: 3em;
   line-height: normal;
+  font-weight: bold;
 }
 @media only screen and (max-width: 480px) {
   .card-back p {
-    font-size: 2.5em;
+    font-size: 1.6em;
+  }
+}
+
+.table-section h2 {
+  text-align: center;
+  font-size: 1.5em;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  color: #306224;
+  font-weight: bold;
+  padding: 0 0 15px 0;
+  background-color: white;
+}
+@media only screen and (max-width: 480px) {
+  .table-section h2 {
+    font-size: 1.2em;
+  }
+}
+
+/* Table Styles */
+.table-wrapper {
+  margin: 1em 0.5em;
+  box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+}
+@media only screen and (max-width: 480px) {
+  .table-wrapper h2 {
+    font-size: 1em;
+  }
+}
+
+.fl-table {
+  font-size: 1.1em;
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  background-color: white;
+}
+
+.fl-table td,
+.fl-table th {
+  text-align: center;
+  padding: 8px;
+}
+
+.fl-table td {
+  border-right: 1px solid #f8f8f8;
+  font-size: 1em;
+}
+
+.fl-table thead th {
+  color: #ffffff;
+  background: #4fc3a1;
+}
+
+.fl-table thead th:nth-child(odd) {
+  color: #ffffff;
+  background: #324960;
+}
+
+.fl-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .fl-table {
+    display: block;
+    width: 100%;
+  }
+  .fl-table thead,
+  .fl-table tbody,
+  .fl-table thead th {
+    display: block;
+  }
+  .fl-table thead th:last-child {
+    border-bottom: none;
+  }
+  .fl-table thead {
+    float: left;
+  }
+  .fl-table tbody {
+    width: auto;
+    position: relative;
+    overflow-x: auto;
+  }
+  .fl-table td,
+  .fl-table th {
+    padding: 20px 0.625em 0.625em 0.625em;
+    height: 60px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 120px;
+    font-size: 0.9em;
+    text-overflow: ellipsis;
+  }
+  .fl-table thead th {
+    text-align: left;
+    border-bottom: 1px solid #f7f7f9;
+    width: 5rem;
+  }
+  .fl-table tbody tr {
+    display: table-cell;
+  }
+  .fl-table tbody tr:nth-child(odd) {
+    background: none;
+  }
+  .fl-table tr:nth-child(even) {
+    background: transparent;
+  }
+  .fl-table tr td:nth-child(odd) {
+    background: #f8f8f8;
+    border-right: 1px solid #e6e4e4;
+  }
+  .fl-table tr td:nth-child(even) {
+    border-right: 1px solid #e6e4e4;
+  }
+  .fl-table tbody td {
+    display: block;
+    text-align: center;
+  }
+}
+.month_slider {
+  display: flex;
+  padding: 2% 5%;
+  background-color: #ffffff;
+}
+.month_slider span {
+  align-self: center;
+}
+.month_slider button {
+  border-radius: 50px;
+  padding: 0.5em 1em;
+}
+.month_slider button svg {
+  height: 15px;
+  align-self: center;
+}
+@media only screen and (max-width: 480px) {
+  .month_slider button {
+    font-size: 0.9em;
+  }
+}
+@media only screen and (max-width: 680px) {
+  .month_slider div input {
+    height: 4.4rem;
+  }
+}
+#btn_prev_mon {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+#btn_prev_mon:hover svg {
+  transform: translateX(-10%);
+}
+
+#btn_next_mon {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+#btn_next_mon:hover svg {
+  transform: translateX(10%);
+}
+
+#month_date_sel {
+  padding: 1em 0px 0.5em 0px;
+  border-radius: 5px 5px 0px 0px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+#month_date_sel input {
+  font-size: 1.5em;
+  height: 1.8em;
+  text-align: center;
+  text-transform: uppercase;
+  outline: none !important;
+  border-bottom: 1px solid;
+  border-color: #306224;
+}
+@media only screen and (max-width: 480px) {
+  #month_date_sel input {
+    font-size: 1em;
+    height: 2.15em;
   }
 }
 

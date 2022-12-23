@@ -1,30 +1,29 @@
 // Imports
-import * as api from "./modules/Api.js";
 import {
-  formatTime,
-  printCards,
   tomorrow,
   validFormatDate,
-  fillCardsFront,
-  fillCardsBack,
-  dateToTimestamp,
-  yesterday,
   scrollFunction,
 } from "./modules/Functions.js";
-
-// Insert cards into html dynamically
-printCards();
+import { printCards } from "./modules/Cards.js";
+import { monthTable } from "./modules/MonthTable.js";
 
 // Default address
-let address = "srinagar";
+export let address = "srinagar";
+export const set_address = (value) => {
+  address = value;
+};
 
-// A universal date variable to store current date of which timings are shown
-let date = new Date();
-place.innerHTML = address;
+// A universal date variable to store current date of which timings are shown in cards.
+export let date = new Date();
+export const set_date = (value) => {
+  date = value;
+};
 
-// Insert data
-fillCardsFront({ address: address });
-fillCardsBack({ address: address, date: tomorrow(date) });
+// A universal date variable to strore current date of which timings are shown in month table.
+export var curr_table_date = date;
+export const set_curr_table_date = (value) => {
+  curr_table_date = value;
+};
 
 // Date picker's default value set to today()
 date_picker.value = validFormatDate(new Date());
@@ -42,56 +41,32 @@ submit.addEventListener("click", (e) => {
   // Else update address variable, change place name in heading, reset date picker value
   address = search.value;
   place.innerHTML = address;
-  date_picker.value = validFormatDate(new Date());
+  title.innerHTML = address;
+
+  // date_picker.value = validFormatDate(new Date());
 
   // Insert data
-  fillCardsFront({ address: address });
-  fillCardsBack({ address: address });
-});
-
-// An onchange event listener attached to date picker to fetch the timings everytime date changes.
-date_picker.addEventListener("change", () => {
-  // Insert date
-  fillCardsFront({
+  // fillCardsFront({ address: address, date: date });
+  // fillCardsBack({ address: address, date: tomorrow(new Date(date)) });
+  printCards({
     address: address,
-    date: dateToTimestamp(date_picker.value),
+    today: date,
+    tomorrow: tomorrow(new Date(date)),
   });
-  fillCardsBack({
+
+  // On the first load only display the days left in the month in month table.
+  // if (curr_table_date == date) romTable({ address: address });
+  // Else fetch details of picked date
+  // else
+  monthTable({
     address: address,
-    date: dateToTimestamp(tomorrow(new Date(date_picker.value))),
-  });
-  // Update date variable
-  date = date_picker.value;
-});
-
-// An onclick event listener attached to button to fethc the timing of next day.
-btn_next.addEventListener("click", () => {
-  // Update date variable and set it equal to tomorrow
-  date = tomorrow(new Date(date));
-
-  // Update date picker value
-  date_picker.value = validFormatDate(new Date(date));
-
-  // Insert data
-  fillCardsFront({ address: address, date: date });
-  fillCardsBack({
-    address: address,
-    date: tomorrow(new Date(date)),
+    month: curr_table_date.getMonth() + 1,
+    year: curr_table_date.getFullYear(),
   });
 });
 
-// An onclick event listener attached to button to fethc the timing of previous day.
-btn_prev.addEventListener("click", () => {
-  // Update data variable and set it equal to yesterday
-  date = yesterday(new Date(date));
 
-  // Update date picker value
-  date_picker.value = validFormatDate(new Date(date));
-
-  // Insert data
-  fillCardsFront({ address: address, date: date });
-  fillCardsBack({
-    address: address,
-    date: dateToTimestamp(tomorrow(new Date(date))),
-  });
-});
+title.innerHTML = address;
+place.innerHTML = address;
+printCards({ address: address, today: date });
+monthTable({ address: address });
