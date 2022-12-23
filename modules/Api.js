@@ -15,7 +15,7 @@ export const timingsByAddress = ({
   iso8601 = false,
 } = {}) => {
   const options = { method: "GET" };
-  let url = `http://api.aladhan.com/v1/timingsByAddress/${formatDate(
+  let url = `https://api.aladhan.com/v1/timingsByAddress/${formatDate(
     new Date(date)
   )}?address=${address.replaceAll(
     " ",
@@ -42,7 +42,7 @@ export const monthCalender = ({
   iso8601 = false,
 }) => {
   const options = { method: "GET" };
-  let url = `http://api.aladhan.com/v1/calendarByAddress?address=${address.replaceAll(
+  let url = `https://api.aladhan.com/v1/calendarByAddress?address=${address.replaceAll(
     " ",
     "%20"
   )}&month=${month}&year=${year}&annual=${annual}&method=${method}&shafaq=${shafaq}&tune=${tune}&school=${school}&midnightMode=${midnightMode}&latitudeAdjustmentMethod=${latitudeAdjustmentMethod}&adjustment=${adjustment}&iso8601=${iso8601}`;
@@ -67,7 +67,7 @@ export const timingsByCoords = ({
   iso8601 = false,
 } = {}) => {
   const options = { method: "GET" };
-  let url = `http://api.aladhan.com/v1/timings/${date}?latitude=${lat}&longitude=${lon}&method=${method}&shafaq=${shafaq}&tune=${tune}&school=${school}&midnightMode=${midnightMode}&latitudeAdjustmentMethod=${latitudeAdjustmentMethod}&adjustment=${adjustment}&iso8601=${iso8601}`;
+  let url = `https://api.aladhan.com/v1/timings/${date}?latitude=${lat}&longitude=${lon}&method=${method}&shafaq=${shafaq}&tune=${tune}&school=${school}&midnightMode=${midnightMode}&latitudeAdjustmentMethod=${latitudeAdjustmentMethod}&adjustment=${adjustment}&iso8601=${iso8601}`;
   console.log(url);
   fetch(url, options)
     .then((response) => response.json())
