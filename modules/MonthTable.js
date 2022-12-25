@@ -7,9 +7,16 @@ import {
   prevMonth,
   getMonthName,
   getDate,
+  formatToIslamic,
 } from "./Functions.js";
 
-import { curr_table_date, set_curr_table_date, address } from "../script.js";
+import {
+  curr_table_date,
+  set_curr_table_date,
+  address,
+  set_Hdate,
+  Hdate,
+} from "../script.js";
 
 // An onchange event listener attached to month picker to fetch the timings everytime it changes.
 month_table_picker.addEventListener("change", () => {
@@ -131,6 +138,7 @@ export const monthTable = ({
     .then((response) => {
       console.log(response);
       mon_table_rows.innerHTML = "";
+
       for (
         let i = getDate(curr_table_date) - 1;
         i < Object.keys(response.data).length;
@@ -139,6 +147,66 @@ export const monthTable = ({
         let row = response.data[i];
         let html = `
         <tr>
+            <td>${removeYear(row.date.readable)}</td>
+            <td>${formatToIslamic(row.date.hijri.date)}</td>
+            <td>${formatTime(removeZone(row.timings.Imsak))}</td>
+            <td>${formatTime(removeZone(row.timings.Fajr))}</td>
+            <td>${formatTime(removeZone(row.timings.Sunrise))}</td>
+            <td>${formatTime(removeZone(row.timings.Dhuhr))}</td>
+            <td>${formatTime(removeZone(row.timings.Asr))}</td>
+            <td>${formatTime(removeZone(row.timings.Maghrib))}</td>
+            <td>${formatTime(removeZone(row.timings.Isha))}</td>
+        </tr>
+        `;
+        mon_table_rows.insertAdjacentHTML("beforeend", html);
+      }
+    });
+};
+
+export const hijriMonthTable = ({
+  address = "",
+  month = new Date().getMonth() + 1,
+  year = new Date().getFullYear(),
+  annual = false,
+  method = 1,
+  shafaq = "general",
+  tune = 0,
+  school = 1,
+  midnightMode = "",
+  latitudeAdjustmentMethod = "",
+  adjustment = "",
+  iso8601 = false,
+}) => {
+  api
+    .hijriMonthCalender({
+      address: address,
+      month: month,
+      year: year,
+      annual: annual,
+      method: method,
+      shafaq: shafaq,
+      tune: tune,
+      school: school,
+      midnightMode: midnightMode,
+      latitudeAdjustmentMethod: latitudeAdjustmentMethod,
+      adjustment: adjustment,
+      iso8601: iso8601,
+    })
+    .then((response) => {
+      console.log(response);
+      mon_table_rows.innerHTML = "";
+      set_Hdate(response.data[0].date.hijri.date);
+      console.log(Hdate);
+      for (
+        let i = getDate(curr_table_date) - 1;
+        i < Object.keys(response.data).length;
+        i++
+      ) {
+        let row = response.data[i];
+
+        let html = `
+        <tr>
+            <td>${removeYear(row.date.readable)}</td>
             <td>${removeYear(row.date.readable)}</td>
             <td>${formatTime(removeZone(row.timings.Imsak))}</td>
             <td>${formatTime(removeZone(row.timings.Fajr))}</td>
@@ -153,3 +221,5 @@ export const monthTable = ({
       }
     });
 };
+
+hijriMonthTable({ address: "srinagar" });

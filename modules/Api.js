@@ -52,6 +52,32 @@ export const monthCalender = ({
     .catch((err) => console.error(err));
 };
 
+
+export const hijriMonthCalender = ({
+  address = "",
+  month = "",
+  year = "",
+  annual = false,
+  method = 1,
+  shafaq = "general",
+  tune = 0,
+  school = 1,
+  midnightMode = "",
+  latitudeAdjustmentMethod = "",
+  adjustment = "",
+  iso8601 = false,
+}) => {
+  const options = { method: "GET" };
+  let url = `http://api.aladhan.com/v1/hijriCalendarByAddress?address=${address.replaceAll(
+    " ",
+    "%20"
+  )}&month=${month}&year=${year}&annual=${annual}&method=${method}&shafaq=${shafaq}&tune=${tune}&school=${school}&midnightMode=${midnightMode}&latitudeAdjustmentMethod=${latitudeAdjustmentMethod}&adjustment=${adjustment}&iso8601=${iso8601}`;
+  console.log("Calender", url);
+  return fetch(url, options)
+    .then((response) => response.json())
+    .catch((err) => console.error(err));
+};
+
 // Returns all timing of a day by coordinates
 export const timingsByCoords = ({
   date = today(new Date()),
