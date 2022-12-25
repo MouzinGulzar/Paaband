@@ -3,9 +3,11 @@ import {
   tomorrow,
   validFormatDate,
   scrollFunction,
+  formatDate,
 } from "./modules/Functions.js";
 import { printCards } from "./modules/Cards.js";
 import { monthTable } from "./modules/MonthTable.js";
+import * as api from "./modules/Api.js";
 
 // Default address
 export let address = "srinagar";
@@ -17,6 +19,12 @@ export const set_address = (value) => {
 export let date = new Date();
 export const set_date = (value) => {
   date = value;
+};
+
+// A universal date variable to store current date of which timings are shown in cards.
+export let Hdate = validFormatDate(date);
+export const set_Hdate = (value) => {
+  Hdate = value;
 };
 
 // A universal date variable to strore current date of which timings are shown in month table.
@@ -65,6 +73,19 @@ submit.addEventListener("click", (e) => {
   });
 });
 
+// month_switch.addEventListener("click", () => {
+//   if (month_switch_text.dataset.toggle == 0) {
+//     month_switch_text.innerHTML = "Switch to Gregorian Calender";
+//     month_switch_text.dataset.toggle = 1;
+//   } else if (month_switch_text.dataset.toggle == 1) {
+//     month_switch_text.innerHTML = "Switch to Hijri Calender";
+//     month_switch_text.dataset.toggle = 0;
+//   }
+// });
+
+api
+  .hijriMonthCalender({ address: "bandipora" })
+  .then((res) => console.log("Hijri", res));
 
 title.innerHTML = address;
 place.innerHTML = address;

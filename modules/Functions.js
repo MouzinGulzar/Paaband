@@ -114,13 +114,48 @@ export const getMonthName = (month) => {
   return months[month];
 };
 
+// Takes JS 0 based month number and return name of islamic month
+export const getIMonthName = (month) => {
+  const months = [
+    "Muharram",
+    "Safar",
+    // "Rabi’ al-awwal",
+    "Rabi1",
+    // "Rabi’ al-thani",
+    "Rabi2",
+    // "Jumada al-awwal",
+    "Jumada1",
+    // "Jumada al-Thani",
+    "Jumada2",
+    "Rajab",
+    "Sha’aban",
+    "Ramadan",
+    "Shawwal",
+    "Dhu al-Qi’dah",
+    "Dhu al-Hijjah",
+  ];
+  return months[month];
+};
+
+// Takes a date string from in dd-mm-yyyy format and return it in "dd month" format
+export const formatToIslamic = (str) => {
+  let string = str;
+  let arr = string.split("-");
+  const Idate = {
+    date: arr[0],
+    month: arr[1],
+    year: arr[2],
+  };
+  return `${Idate.date} ${getIMonthName(Idate.month - 1)}`;
+};
+
 // Removes year from date string
-export const removeYear = (date) => {
-  const dt = new Date(date);
+export const removeYear = (date, mode) => {
+  let dt = new Date(date);
   let d = dt.getDate();
   if (d < 10) d = "0" + d;
-
   let m = dt.getMonth();
+
   return `${d} ${getMonthName(m)}`;
 };
 
@@ -136,7 +171,7 @@ export const removeZone = (time) => {
 
 // Takes a date and return next month.
 export const nextMonth = (date = new Date()) => {
-  const days_in_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const days_in_months = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   const this_month = date.getTime();
   const passedDays = date.getDate();
   ``;
