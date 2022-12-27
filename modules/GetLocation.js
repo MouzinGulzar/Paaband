@@ -19,9 +19,8 @@ const userLocation = (pos) => {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      let add = `${data.address.city}, ${data.address.city}, ${data.address.state}`;
-
-      place.innerHTML = `${data.address.city}, ${data.address.city}, ${data.address.state}`;
+      let add = `${data.address.city}, ${data.address.state}`;
+      place.innerHTML = data.address.city ?? data.address.state;
       printCards({ address: add, today: date });
       monthTable({ address: add });
 
