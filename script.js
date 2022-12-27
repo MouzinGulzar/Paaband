@@ -3,10 +3,10 @@ import {
   tomorrow,
   validFormatDate,
   scrollFunction,
-  formatDate,
 } from "./modules/Functions.js";
 import { printCards } from "./modules/Cards.js";
 import { monthTable } from "./modules/MonthTable.js";
+import { getLocation } from "./modules/GetLocation.js";
 import * as api from "./modules/Api.js";
 
 // Default address
@@ -83,11 +83,17 @@ submit.addEventListener("click", (e) => {
 //   }
 // });
 
-api
-  .hijriMonthCalender({ address: "bandipora" })
-  .then((res) => console.log("Hijri", res));
-
 title.innerHTML = address;
 place.innerHTML = address;
-printCards({ address: address, today: date });
-monthTable({ address: address });
+
+let fl = 1;
+if (fl) {
+  console.log("First Load");
+  window.onload = function () {
+    getLocation();
+  };
+  fl = 0;
+} else {
+  printCards({ address: address, today: date });
+  monthTable({ address: address });
+}

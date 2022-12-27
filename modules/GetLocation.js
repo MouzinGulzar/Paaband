@@ -1,4 +1,10 @@
-import { address, set_address } from "../script.js";
+import { address, set_address, date } from "../script.js";
+import { printCards } from "./Cards.js";
+import { monthTable } from "./MonthTable.js";
+
+// window.onload = function () {
+// getLocation();
+// };
 
 export const getLocation = () => {
   if (navigator.geolocation) {
@@ -7,22 +13,27 @@ export const getLocation = () => {
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
 };
-
 const userLocation = (pos) => {
   let url = `https://nominatim.openstreetmap.org/reverse?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&format=json`;
 
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
+      let add = `${data.address.city}, ${data.address.city}, ${data.address.state}`;
+
+      place.innerHTML = data.address.city;
+      printCards({ address: add, today: date });
+      monthTable({ address: add });
+
       set_address(
-        `${data.address.city}, ${data.address.city}, ${data.address.state}`
+        `${data.address.city}`
+        // `${data.address.city}, ${data.address.city}, ${data.address.state}`
       );
+      console.log(data);
       // return address
     });
 };
 
-// console.log(getLocation());
-// console.log(userLocation());
 function showPosition(position) {
   x.innerHTML =
     "Latitude: " +

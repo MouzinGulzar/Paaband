@@ -45,6 +45,7 @@ btn_next.addEventListener("click", () => {
 
 // An onclick event listener attached to button to fetch the timing of previous day.
 btn_prev.addEventListener("click", () => {
+  console.log("address: ", address);
   // Update data variable and set it equal to yesterday
   set_date(yesterday(new Date(date)));
   // date = yesterday(new Date(date));
@@ -60,6 +61,7 @@ btn_prev.addEventListener("click", () => {
   });
 });
 
+// Fills the front side of cards
 const fillCardsFront = async ({
   date = new Date(),
   address = "",

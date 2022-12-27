@@ -221,5 +221,3 @@ export const hijriMonthTable = ({
       }
     });
 };
-
-hijriMonthTable({ address: "srinagar" });
