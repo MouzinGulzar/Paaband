@@ -21,7 +21,7 @@ const userLocation = (pos) => {
     .then((data) => {
       let add = `${data.address.city}, ${data.address.city}, ${data.address.state}`;
 
-      place.innerHTML = data.address.city;
+      place.innerHTML = `${data.address.city}, ${data.address.city}, ${data.address.state}`;
       printCards({ address: add, today: date });
       monthTable({ address: add });
 
