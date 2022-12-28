@@ -33,27 +33,19 @@ const userLocation = (pos) => {
     });
 };
 
-function showPosition(position) {
-  x.innerHTML =
-    "Latitude: " +
-    position.coords.latitude +
-    "<br>Longitude: " +
-    position.coords.longitude;
-}
-
 function err(error) {
   switch (error.code) {
     case error.PERMISSION_DENIED:
-      x.innerHTML = "Please allow access to location.";
+      console.log("Please allow access to location.");
       break;
     case error.POSITION_UNAVAILABLE:
-      x.innerHTML = "Location information is unavailable.";
+      console.log("Location information is unavailable.");
       break;
     case error.TIMEOUT:
-      x.innerHTML = "The request to get location timed out.";
+      console.log("The request to get location timed out.");
       break;
     case error.UNKNOWN_ERROR:
-      x.innerHTML = "An unknown error occurred.";
+      console.log("An unknown error occurred.");
       break;
   }
 }
