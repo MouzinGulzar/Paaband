@@ -92,14 +92,18 @@ svg {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
-#place_heading {
+#heading {
   margin: 2rem 1rem 1rem 1rem;
-  text-align: center;
-  text-transform: capitalize;
-  color: #306224;
   background-color: #eee;
-  border-radius: 15px;
   padding: 1em 0em;
+  text-align: center;
+  color: #306224;
+  border-radius: 15px;
+}
+
+#place_heading {
+  text-transform: capitalize;
+  background-color: #eee;
   font-size: 2em;
   font-weight: bold;
 }
@@ -403,12 +407,12 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .fl-table thead th {
   color: #ffffff;
-  background: #4fc3a1;
+  background: rgba(52, 110, 38, 0.8392156863);
 }
 
 .fl-table thead th:nth-child(odd) {
   color: #ffffff;
-  background: #324960;
+  background: #306224;
 }
 
 .fl-table tr:nth-child(even) {

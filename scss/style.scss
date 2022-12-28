@@ -136,14 +136,20 @@ svg {
 }
 
 // Heading
-#place_heading {
+#heading {
     margin: 2rem 1rem 1rem 1rem;
-    text-align: center;
-    text-transform: capitalize;
-    color: $color;
     background-color: #eee;
-    border-radius: 15px;
     padding: 1em 0em;
+    text-align: center;
+    color: $color;
+    border-radius: 15px;
+    // font-weight: bold;
+}
+#place_heading {
+    // text-align: center;
+    text-transform: capitalize;
+    // color: $color;
+    background-color: #eee;
     font-size: 2em;
     font-weight: bold;
 
@@ -471,12 +477,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .fl-table thead th {
     color: #ffffff;
-    background: #4fc3a1;
+    background: #346e26d6;
+    // border-right: 1px solid $color;
+    // color: #ffffff;
+    // background: #4fc3a1;
 }
 
 .fl-table thead th:nth-child(odd) {
     color: #ffffff;
-    background: #324960;
+    background: $color;
+    // background: #324960;
 }
 
 .fl-table tr:nth-child(even) {
