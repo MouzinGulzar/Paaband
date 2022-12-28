@@ -49,7 +49,7 @@ submit.addEventListener("click", (e) => {
   // Else update address variable, change place name in heading, reset date picker value
   address = search.value;
   place.innerHTML = address;
-  title.innerHTML = address;
+  title.innerHTML = `Timings for ${address}`;
 
   // date_picker.value = validFormatDate(new Date());
 
@@ -83,7 +83,7 @@ submit.addEventListener("click", (e) => {
 //   }
 // });
 
-title.innerHTML = address;
+title.innerHTML = `Timings for ${address}`;
 place.innerHTML = address;
 
 let fl = 1;

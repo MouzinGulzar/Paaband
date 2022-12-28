@@ -20,14 +20,14 @@ const userLocation = (pos) => {
     .then((res) => res.json())
     .then((data) => {
       let add = `${data.address.city}, ${data.address.state}`;
-      place.innerHTML = data.address.city ?? data.address.state;
       printCards({ address: add, today: date });
       monthTable({ address: add });
+      set_address(add);
 
-      set_address(
-        `${data.address.city}, ${data.address.state}`
-        // `${data.address.city}`
-      );
+      add = data.address.city ?? data.address.state;
+      place.innerHTML = add;
+      title.innerHTML = `Timings for ${add}`;
+
       // console.log(data);
     });
 };

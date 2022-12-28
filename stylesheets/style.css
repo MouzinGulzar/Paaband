@@ -99,13 +99,13 @@ svg {
   color: #306224;
   background-color: #eee;
   border-radius: 15px;
-  padding: 0.5em 0em;
+  padding: 1em 0em;
   font-size: 2em;
   font-weight: bold;
 }
 @media only screen and (max-width: 520px) {
   #place_heading {
-    font-size: 1em;
+    font-size: 1.5em;
   }
 }
 
@@ -158,8 +158,8 @@ svg {
     font-size: 1em;
   }
   .time button svg {
-    height: 15px;
-    width: 15px;
+    height: 20px;
+    width: 20px;
     margin-right: 0.2em;
     margin-left: 0.2em;
   }
@@ -170,8 +170,8 @@ svg {
 }
 @media only screen and (max-width: 520px) {
   .time div {
-    width: 50%;
-    min-width: 7em;
+    width: 35%;
+    min-width: 150px;
   }
 }
 .time div input {
@@ -187,13 +187,13 @@ svg {
 }
 @media only screen and (max-width: 520px) {
   .time div input {
-    font-size: 0.93em;
-    height: 1.98em;
+    font-size: 1.08em;
+    height: 2em;
   }
 }
 
 .card_time {
-  margin-top: 2em;
+  margin: 1em 0em;
 }
 
 #btn_prev {
@@ -313,7 +313,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 @media only screen and (max-width: 520px) {
   .card-front p {
-    font-size: 1.6em;
+    font-size: 2em;
   }
 }
 
@@ -348,7 +348,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 @media only screen and (max-width: 520px) {
   .card-back p {
-    font-size: 1.6em;
+    font-size: 2em;
   }
 }
 
@@ -538,6 +538,21 @@ input[type=date]::-webkit-calendar-picker-indicator {
     font-size: 1em;
     height: 2.15em;
   }
+}
+
+footer {
+  background-color: #306224;
+}
+footer svg {
+  width: 75px;
+  height: 75px;
+}
+footer span {
+  margin-left: 0.5em;
+}
+footer a svg {
+  width: 24px;
+  height: 24px;
 }
 
 @keyframes fadeIn {
