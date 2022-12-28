@@ -89,7 +89,7 @@ const fillCardsFront = async ({
     })
     .then((response) => {
       // console.log(response);
-      
+
       // Insert data into cards
       imsak_today.innerHTML = formatTime(response.data.timings?.Imsak);
       fajr_today.innerHTML = formatTime(response.data.timings?.Fajr);
