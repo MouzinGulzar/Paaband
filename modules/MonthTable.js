@@ -140,7 +140,7 @@ export const monthTable = ({
       mon_table_rows.innerHTML = "";
 
       for (
-        let i = getDate(curr_table_date);
+        let i = getDate(curr_table_date) - 1;
         i < Object.keys(response.data).length;
         i++
       ) {
