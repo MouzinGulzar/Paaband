@@ -49,6 +49,7 @@ submit.addEventListener("click", (e) => {
   // Else update address variable, change place name in heading, reset date picker value
   address = search.value;
   place.innerHTML = address;
+  inacc_warning.innerHTML = "";
   title.innerHTML = `Timings for ${address}`;
 
   // date_picker.value = validFormatDate(new Date());

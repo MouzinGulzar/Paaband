@@ -26,6 +26,8 @@ const userLocation = (pos) => {
 
       add = data.address.city ?? data.address.state;
       place.innerHTML = add;
+      inacc_warning.innerHTML =
+        '"For more accurate results type address manually"';
       title.innerHTML = `Timings for ${add}`;
 
       // console.log(data);
@@ -36,18 +38,20 @@ function err(error) {
   place.innerHTML = address;
   printCards({ address: address, today: date });
   monthTable({ address: address });
-  // switch (error.code) {
-  //   case error.PERMISSION_DENIED:
-  //     console.log("Please allow access to location.");
-  //     break;
-  //   case error.POSITION_UNAVAILABLE:
-  //     console.log("Location information is unavailable.");
-  //     break;
-  //   case error.TIMEOUT:
-  //     console.log("The request to get location timed out.");
-  //     break;
-  //   case error.UNKNOWN_ERROR:
-  //     console.log("An unknown error occurred.");
-  //     break;
-  // }
+
+  // Handling geolocation errors
+  switch (error.code) {
+    case error.PERMISSION_DENIED:
+      console.log("Please allow access to location.");
+      break;
+    case error.POSITION_UNAVAILABLE:
+      console.log("Location information is unavailable.");
+      break;
+    case error.TIMEOUT:
+      console.log("The request to get location timed out.");
+      break;
+    case error.UNKNOWN_ERROR:
+      console.log("An unknown error occurred.");
+      break;
+  }
 }
