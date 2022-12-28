@@ -9,6 +9,7 @@ import {
 } from "./Functions.js";
 import { address, date, set_date } from "../script.js";
 
+let fl = 1;
 // An onchange event listener attached to date picker to fetch the timings everytime date changes.
 date_picker.addEventListener("change", () => {
   // Insert date
@@ -45,7 +46,6 @@ btn_next.addEventListener("click", () => {
 
 // An onclick event listener attached to button to fetch the timing of previous day.
 btn_prev.addEventListener("click", () => {
-  console.log("address: ", address);
   // Update data variable and set it equal to yesterday
   set_date(yesterday(new Date(date)));
   // date = yesterday(new Date(date));
@@ -88,6 +88,8 @@ const fillCardsFront = async ({
       iso8601: iso8601,
     })
     .then((response) => {
+      // console.log(response);
+      
       // Insert data into cards
       imsak_today.innerHTML = formatTime(response.data.timings?.Imsak);
       fajr_today.innerHTML = formatTime(response.data.timings?.Fajr);
@@ -140,12 +142,15 @@ const fillCardsFront = async ({
             isha_today.textContent
           );
         });
-
       // Insert date in header
-      day.innerHTML = response.data.date.gregorian.weekday.en;
-      Idate.innerHTML = response.data.date.hijri.day;
-      month.innerHTML = response.data.date.hijri.month.en;
-      year.innerHTML = response.data.date.hijri.year;
+      if (fl) {
+        //Prevent date updation with updation of cards
+        day.innerHTML = response.data.date.gregorian.weekday.en;
+        Idate.innerHTML = response.data.date.hijri.day;
+        month.innerHTML = response.data.date.hijri.month.en;
+        year.innerHTML = response.data.date.hijri.year;
+        fl = 0;
+      }
     });
 };
 

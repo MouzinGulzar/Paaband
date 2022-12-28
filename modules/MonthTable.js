@@ -24,7 +24,7 @@ month_table_picker.addEventListener("change", () => {
   let dt = new Date(month_table_picker.value);
   let month = dt.getMonth() + 1;
   let year = dt.getFullYear();
-  console.log(month);
+  // console.log(month);
 
   // Inserts data in month table
   monthTable({
@@ -136,11 +136,11 @@ export const monthTable = ({
       iso8601: iso8601,
     })
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       mon_table_rows.innerHTML = "";
 
       for (
-        let i = getDate(curr_table_date) - 1;
+        let i = getDate(curr_table_date);
         i < Object.keys(response.data).length;
         i++
       ) {

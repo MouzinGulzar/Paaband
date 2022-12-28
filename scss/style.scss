@@ -1,6 +1,6 @@
 // Variables
 $color: #306224; // Theme
-$phone: 480px; // Phone breakpoint
+$phone: 520px; // Phone breakpoint
 $tablet: 680px; // Tablet breakpoint
 $desktop: 1024px; // Desktop breakpoint
 $card_height: 10em; // Card height
@@ -213,8 +213,8 @@ svg {
             font-size: 1em;
 
             svg {
-                height: 10px;
-                width: 10px;
+                height: 15px;
+                width: 15px;
                 margin-right: 0.2em;
                 margin-left: 0.2em;
             }
@@ -244,7 +244,7 @@ svg {
             outline: none;
 
             @include devices(phone) {
-                font-size: 0.8em;
+                font-size: 0.93em;
                 height: 1.98em;
             }
         }

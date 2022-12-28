@@ -6,7 +6,7 @@ import {
 } from "./modules/Functions.js";
 import { printCards } from "./modules/Cards.js";
 import { monthTable } from "./modules/MonthTable.js";
-import { getLocation } from "./modules/GetLocation.js";
+import { getLocation } from "./modules/FirstLoad.js";
 import * as api from "./modules/Api.js";
 
 // Default address
@@ -88,7 +88,6 @@ place.innerHTML = address;
 
 let fl = 1;
 if (fl) {
-  console.log("First Load");
   window.onload = function () {
     getLocation();
   };

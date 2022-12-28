@@ -21,7 +21,7 @@ export const timingsByAddress = ({
     " ",
     "%20"
   )}&method=${method}&shafaq=${shafaq}&tune=${tune}&school=${school}&midnightMode=${midnightMode}&latitudeAdjustmentMethod=${latitudeAdjustmentMethod}&adjustment=${adjustment}&iso8601=${iso8601}`;
-  console.log(url);
+  // console.log(url);
   return fetch(url, options)
     .then((response) => response.json())
     .catch((err) => console.error(err));
@@ -46,7 +46,7 @@ export const monthCalender = ({
     " ",
     "%20"
   )}&month=${month}&year=${year}&annual=${annual}&method=${method}&shafaq=${shafaq}&tune=${tune}&school=${school}&midnightMode=${midnightMode}&latitudeAdjustmentMethod=${latitudeAdjustmentMethod}&adjustment=${adjustment}&iso8601=${iso8601}`;
-  console.log("Calender", url);
+  // console.log("Calender", url);
   return fetch(url, options)
     .then((response) => response.json())
     .catch((err) => console.error(err));
@@ -94,7 +94,7 @@ export const timingsByCoords = ({
 } = {}) => {
   const options = { method: "GET" };
   let url = `https://api.aladhan.com/v1/timings/${formatDate(date)}?latitude=${lat}&longitude=${lon}&method=${method}&shafaq=${shafaq}&tune=${tune}&school=${school}&midnightMode=${midnightMode}&latitudeAdjustmentMethod=${latitudeAdjustmentMethod}&adjustment=${adjustment}&iso8601=${iso8601}`;
-  console.log(url);
+  // console.log(url);
   return fetch(url, options)
     .then((response) => response.json())
     .catch((err) => console.error(err));
@@ -117,7 +117,7 @@ export const monthCalenderByCoords = ({
 }) => {
   const options = { method: "GET" };
   let url = ` http://api.aladhan.com/v1/calendar?latitude=${lat}&longitude=${lon}&month=${month}&year=${year}&annual=${annual}&method=${method}&shafaq=${shafaq}&tune=${tune}&school=${school}&midnightMode=${midnightMode}&latitudeAdjustmentMethod=${latitudeAdjustmentMethod}&adjustment=${adjustment}&iso8601=${iso8601}`;
-  console.log("Calender", url);
+  // console.log("Calender", url);
   return fetch(url, options)
     .then((response) => response.json())
     .catch((err) => console.error(err));

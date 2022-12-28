@@ -25,7 +25,7 @@ nav svg {
   width: 48px;
   height: 48px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   nav svg {
     width: 35px;
     height: 35px;
@@ -37,7 +37,7 @@ svg {
   width: 20px;
   height: 20px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   svg {
     width: 15px;
     height: 15px;
@@ -52,7 +52,7 @@ svg {
   padding: 0.5em;
   background-color: white;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   .date {
     font-size: 0.8em;
   }
@@ -103,7 +103,7 @@ svg {
   font-size: 2em;
   font-weight: bold;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   #place_heading {
     font-size: 1em;
   }
@@ -118,7 +118,7 @@ svg {
   margin: 0.5rem;
   justify-content: center;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   .bttn {
     font-size: 1em;
   }
@@ -152,14 +152,14 @@ svg {
 .time button:hover {
   background-color: #306224;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   .time button {
     padding: 0.45em 0.9em;
     font-size: 1em;
   }
   .time button svg {
-    height: 10px;
-    width: 10px;
+    height: 15px;
+    width: 15px;
     margin-right: 0.2em;
     margin-left: 0.2em;
   }
@@ -168,7 +168,7 @@ svg {
   width: 60%;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   .time div {
     width: 50%;
     min-width: 7em;
@@ -185,9 +185,9 @@ svg {
   border-color: #306224;
   outline: none;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   .time div input {
-    font-size: 0.8em;
+    font-size: 0.93em;
     height: 1.98em;
   }
 }
@@ -226,7 +226,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   transform: translateX(-25%);
   border-width: thin;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   input[type=date]::-webkit-calendar-picker-indicator {
     width: 1.2em;
     height: 1.2em;
@@ -265,7 +265,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .card:hover .card-back {
   transform: rotateX(0deg);
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   .card {
     height: 8em;
     margin: 0.5rem;
@@ -297,7 +297,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   font-size: 1.2em;
   font-weight: bold;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   .card-front h2 {
     font-size: 1em;
   }
@@ -311,7 +311,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   line-height: normal;
   font-weight: bold;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   .card-front p {
     font-size: 1.6em;
   }
@@ -346,7 +346,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   line-height: normal;
   font-weight: bold;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   .card-back p {
     font-size: 1.6em;
   }
@@ -362,7 +362,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   padding: 0 0 15px 0;
   background-color: white;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   .table-section h2 {
     font-size: 1.2em;
   }
@@ -373,7 +373,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   margin: 1em 0.5em;
   box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   .table-wrapper h2 {
     font-size: 1em;
   }
@@ -491,7 +491,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   height: 15px;
   align-self: center;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   .month_slider button {
     font-size: 0.9em;
   }
@@ -533,7 +533,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   border-bottom: 1px solid;
   border-color: #306224;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   #month_date_sel input {
     font-size: 1em;
     height: 2.15em;
