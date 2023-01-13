@@ -8,6 +8,8 @@ import { printCards } from "./modules/Cards.js";
 import { monthTable } from "./modules/MonthTable.js";
 import { getLocation } from "./modules/FirstLoad.js";
 import * as api from "./modules/Api.js";
+import "./modules/Loader.js";
+import { load } from "./modules/Loader.js";
 
 // Default address
 export let address = "srinagar";
@@ -45,24 +47,24 @@ window.onscroll = function () {
 submit.addEventListener("click", (e) => {
   // If the input is empty stay idle.
   if (search.value == false) return;
-
+  load(5);
   // Else update address variable, change place name in heading, reset date picker value
   address = search.value;
   place.innerHTML = address;
   inacc_warning.innerHTML = "";
   title.innerHTML = `Timings for ${address}`;
-
   // date_picker.value = validFormatDate(new Date());
 
   // Insert data
   // fillCardsFront({ address: address, date: date });
   // fillCardsBack({ address: address, date: tomorrow(new Date(date)) });
+  load(25);
   printCards({
     address: address,
     today: date,
     tomorrow: tomorrow(new Date(date)),
   });
-
+  load(50);
   // On the first load only display the days left in the month in month table.
   // if (curr_table_date == date) romTable({ address: address });
   // Else fetch details of picked date
@@ -72,8 +74,8 @@ submit.addEventListener("click", (e) => {
     month: curr_table_date.getMonth() + 1,
     year: curr_table_date.getFullYear(),
   });
+  load(100);
 });
-
 // month_switch.addEventListener("click", () => {
 //   if (month_switch_text.dataset.toggle == 0) {
 //     month_switch_text.innerHTML = "Switch to Gregorian Calender";
@@ -87,13 +89,13 @@ submit.addEventListener("click", (e) => {
 title.innerHTML = `Timings for ${address}`;
 place.innerHTML = address;
 
-let fl = 1;
-if (fl) {
-  window.onload = function () {
-    getLocation();
-  };
-  fl = 0;
-} else {
-  printCards({ address: address, today: date });
-  monthTable({ address: address });
-}
+// let fl = 1;
+// if (fl) {
+window.onload = function () {
+  getLocation();
+};
+//   fl = 0;
+// } else {
+//   printCards({ address: address, today: date });
+//   monthTable({ address: address });
+// }

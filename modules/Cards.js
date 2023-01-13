@@ -8,6 +8,7 @@ import {
   dateToTimestamp,
 } from "./Functions.js";
 import { address, date, set_date } from "../script.js";
+import { loadCard } from "./Loader.js";
 
 let fl = 1;
 // An onchange event listener attached to date picker to fetch the timings everytime date changes.
@@ -30,11 +31,14 @@ date_picker.addEventListener("change", () => {
 btn_next.addEventListener("click", () => {
   // Update date variable and set it equal to tomorrow
   set_date(tomorrow(new Date(date)));
+  loadCard(5);
+  loadCard(25);
   // date = tomorrow(new Date(date));
 
   // Update date picker value
   date_picker.value = validFormatDate(new Date(date));
 
+  loadCard(50);
   // Insert data
   // fillCardsFront({ address: address, date: date });
   // fillCardsBack({
@@ -42,6 +46,8 @@ btn_next.addEventListener("click", () => {
   //   date: tomorrow(new Date(date)),
   // });
   printCards({ address: address });
+  loadCard(100);
+  loadCard(-1);
 });
 
 // An onclick event listener attached to button to fetch the timing of previous day.
